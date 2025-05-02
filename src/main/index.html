@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nine. | Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Promo Bar (Sticky at the top) -->
+<div class="promo-bar">
+    <p>🎉 Free Shipping on All Orders in India above 2000INR! 🎉</p>
+</div>
+<header>
+    <div class="header-left">
+        <h2>Nine.</h2>
+    </div>
+    <div class="header-right">
+        <!-- Search Bar -->
+        <input type="text" placeholder="Search bags..." class="search-bar">
+
+        <!-- Auth Links -->
+        <a href="#" class="login login-only" id="login-btn" title="Login">
+            <i class="fas fa-sign-in-alt"></i>
+        </a>
+        <a href="#" class="bucket profile-only" title="My Cart">
+            <i class="fas fa-shopping-bag"></i>
+        </a>
+        <a href="#" class="wishlist profile-only" title="Wishlist">
+            <i class="fas fa-heart"></i>
+        </a>
+        <a href="#" class="profile profile-only" title="Profile">
+            <i class="fas fa-user"></i>
+        </a>
+
+        <!-- Currency Selector -->
+        <div class="currency-dropdown">
+            <select id="currency-select" onchange="changeCurrency(this.value)">
+                <option value="USD">🇺🇸 USD</option>
+                <option value="INR">🇮🇳 INR</option>
+                <option value="EUR">🇪🇺 EUR</option>
+                <option value="JPY">🇯🇵 JPY</option>
+                <option value="AUD">🇦🇺 AUD</option>
+                <option value="CAD">🇨🇦 CAD</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Login</h2>
+            <form>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+            <div class="social-login">
+                <p>Or login with:</p>
+                <button class="btn google-btn">Login with Google</button>
+                <button class="btn facebook-btn">Login with Facebook</button>
+            </div>
+            <p class="signup-link">Don't have an account? <a href="register.html">Sign up here</a></p>
+        </div>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<div class="hero">
+    <div class="carousel">
+        <div class="carousel-slide">
+            <img src="https://i.postimg.cc/fWFX9qG3/Men-Colourblock-Letter-Patch-Messenger-Bag-With-Bag-Charm.jpg" alt="Leather Bag Collection">
+            <img src="https://i.postimg.cc/tg2nCBd4/Letter-Patch-Decor-Square-Bag-School-Bag-For-Graduate-Teen-Girls-Freshman-Sophomore-Junior-Sen.jpg" alt="Backpacks for Travel">
+            <img src="https://i.postimg.cc/mkFPjRvP/tote.jpg" alt="Stylish Office Bags">
+            <img src="https://i.postimg.cc/4Nfdn6dK/download-4.jpg" alt="Stylish tote Bags">
+            <img src="https://i.postimg.cc/dtbx4By3/download-6.jpg" alt="Stylish duffel Bags">
+            <img src="https://i.postimg.cc/prDq7N8d/Shop-Women-s-Accessories.jpg" alt="Stylish Office Clutch">
+
+            <!-- Duplicate Images -->
+            <img src="https://i.postimg.cc/fWFX9qG3/Men-Colourblock-Letter-Patch-Messenger-Bag-With-Bag-Charm.jpg" alt="Leather Bag Collection">
+            <img src="https://i.postimg.cc/tg2nCBd4/Letter-Patch-Decor-Square-Bag-School-Bag-For-Graduate-Teen-Girls-Freshman-Sophomore-Junior-Sen.jpg" alt="Backpacks for Travel">
+            <img src="https://i.postimg.cc/mkFPjRvP/tote.jpg" alt="Stylish Office Bags">
+            <img src="https://i.postimg.cc/4Nfdn6dK/download-4.jpg" alt="Stylish tote Bags">
+            <img src="https://i.postimg.cc/dtbx4By3/download-6.jpg" alt="Stylish duffel Bags">
+            <img src="https://i.postimg.cc/prDq7N8d/Shop-Women-s-Accessories.jpg" alt="Stylish Office Clutch">
+        </div>
+    </div>
+    <div class="hero-text">
+        <h1>Welcome to Nine.</h1>
+        <p>Find the perfect bag for every occasion</p>
+        <button class="shop-now" onclick="window.location.href='products.html';">Shop Now</button>
+    </div>
+</div>
+
+<!-- Categories Section -->
+<section class="categories">
+    <h2>Shop by Category</h2>
+    <div class="product-category-grid">
+        <div class="product-categories-container">
+            <a href="products.html"><img src="https://i.postimg.cc/mkFPjRvP/tote.jpg" alt="Tote Bags"></a>
+            <h3>Tote Bags</h3>
+        </div>
+        <div class="product-categories-container">
+            <img src="https://i.postimg.cc/zD97rfXP/download-2.jpg" alt="Backpacks">
+            <h3>Backpacks</h3>
+        </div>
+        <div class="product-categories-container">
+            <img src="https://i.postimg.cc/dVSDbhJh/Mini-Men-Letter-Graphic-Square-Bag-With-Bag-Charm.jpg" alt="Sling Bags">
+            <h3>Sling Bags</h3>
+        </div>
+        <div class="product-categories-container">
+            <img src="https://i.postimg.cc/fWFX9qG3/Men-Colourblock-Letter-Patch-Messenger-Bag-With-Bag-Charm.jpg" alt="Duffel Bags">
+            <h3>Duffel Bags</h3>
+        </div>
+        <div class="product-categories-container">
+            <img src="https://i.postimg.cc/8CJsNTCt/Bag-For-Love-Compact-Flap-Square-Bag-with-Twist-Lock-Closure.jpg" alt="Clutches">
+            <h3>Clutches</h3>
+        </div>
+    </div>
+</section>
+
+<!-- Best Sellers -->
+<section class="featured-products">
+    <h2>Best Sellers</h2>
+    <div class="product-grid">
+        <!-- Sample of 4 best seller bags -->
+        <div class="product-image-container">
+            <img src="https://i.postimg.cc/wMHBXJQG/download-5.jpg" alt="Classic Leather Tote - Front" class="product-image front">
+            <img src="https://i.postimg.cc/4Nfdn6dK/download-4.jpg" alt="Classic Leather Tote - Side" class="product-image side">
+            <h3>Elegant Clutch</h3>
+            <p>$89.99</p>
+        </div>
+        <div class="product-image-container">
+            <img src="https://i.postimg.cc/zD97rfXP/download-2.jpg" alt="Minimalist Backpack - Front" class="product-image front">
+            <img src="https://i.postimg.cc/d0qnxSts/download-3.jpg" alt="Minimalist Backpack - Side" class="product-image side">
+            <h3>Minimalist Backpack</h3>
+            <p>$74.99</p>
+        </div>
+        <div class="product-image-container">
+            <img src="https://i.postimg.cc/NMn4Ls8F/omarrrrrr.jpg" alt="Elegant Clutch - Front" class="product-image front">
+            <img src="https://i.postimg.cc/T3QHfXsL/Functional-Fashion-Crossbody-Bag-Designer.jpg" alt="Elegant Clutch - Side" class="product-image side">
+            <h3>Classic Couple things</h3>
+            <p>$59.99</p>
+        </div>
+        <div class="product-image-container">
+            <img src="https://i.postimg.cc/HnG6BWrK/download-7.jpg" alt="Elegant Clutch - Front" class="product-image front">
+            <img src="https://i.postimg.cc/prDq7N8d/Shop-Women-s-Accessories.jpg" alt="Elegant Clutch - Side" class="product-image side">
+            <h3>Classic Leather Tote</h3>
+            <p>$59.99</p>
+        </div>
+        <div class="product-image-container">
+            <img src="https://i.postimg.cc/dtbx4By3/download-6.jpg" alt="Weekend Duffel - Front" class="product-image front">
+            <img src="https://i.postimg.cc/NMjJ5CWJ/Weiyinxing-Small-Crossbody-Bags-For-Women-2023-Mini-Canvas-Shoulder-Messenger-Bag-For-Girl-Circular.jpg" alt="Weekend Duffel - Side" class="product-image side">
+            <h3>Weekend Sling</h3>
+            <p>$99.99</p>
+        </div>
+        <div class="product-image-container">
+            <img src="https://i.postimg.cc/dtbx4By3/download-6.jpg" alt="Weekend Duffel - Front" class="product-image front">
+            <img src="https://i.postimg.cc/NMjJ5CWJ/Weiyinxing-Small-Crossbody-Bags-For-Women-2023-Mini-Canvas-Shoulder-Messenger-Bag-For-Girl-Circular.jpg" alt="Weekend Duffel - Side" class="product-image side">
+            <h3>Weekend Sling</h3>
+            <p>$99.99</p>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="what-people-think-about-us">
+    <h2>What Our Customers Say</h2>
+    <div class="reviews-container">
+        <div class="review">
+            <p class="customer-feedback">"Nine.’s tote bag is my everyday essential now. Stylish and spacious!"</p>
+            <p class="customer-name">- Priya S.</p>
+        </div>
+        <div class="review">
+            <p class="customer-feedback">"Backpack was delivered fast and the quality is top-notch."</p>
+            <p class="customer-name">- Liam D.</p>
+        </div>
+        <div class="review">
+            <p class="customer-feedback">"I love the color options and finish. Already recommended to friends!"</p>
+            <p class="customer-name">- Ava R.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Nine. Bags. All rights reserved.</p>
+</footer>
+
+<!-- Scripts -->
+<script src="login.js"></script>
+</body>
+</html>

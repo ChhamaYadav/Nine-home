@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Products</title>
+    <link rel="stylesheet" href="products.css">
+    <script src="script.js" defer></script>
+</head>
+
+<div class="promo-bar">
+    <p>🎉 Free Shipping on All Orders in India above 2000INR! 🎉</p>
+</div>
+<header>
+    <div class="header-left">
+        <a href="index.html" class="no-style-link"><h2>Nine.</h2></a>
+    </div>
+    <div class="header-right">
+        <!-- Search Bar -->
+        <input type="text" placeholder="Search bags..." class="search-bar">
+
+        <!-- Auth Links -->
+        <a href="#" class="login login-only" id="login-btn" title="Login">
+            <i class="fas fa-sign-in-alt"></i>
+        </a>
+        <a href="#" class="bucket profile-only" title="My Cart">
+            <i class="fas fa-shopping-bag"></i>
+        </a>
+        <a href="#" class="wishlist profile-only" title="Wishlist">
+            <i class="fas fa-heart"></i>
+        </a>
+        <a href="#" class="profile profile-only" title="Profile">
+            <i class="fas fa-user"></i>
+        </a>
+
+        <!-- Currency Selector -->
+        <div class="currency-dropdown">
+            <select id="currency-select" onchange="changeCurrency(this.value)">
+                <option value="USD">🇺🇸 USD</option>
+                <option value="INR">🇮🇳 INR</option>
+                <option value="EUR">🇪🇺 EUR</option>
+                <option value="JPY">🇯🇵 JPY</option>
+                <option value="AUD">🇦🇺 AUD</option>
+                <option value="CAD">🇨🇦 CAD</option>
+            </select>
+        </div>
+    </div>
+</header>
+<body class="product-page">
+<!-- Main Content -->
+<div class="product-page-content">
+    <!-- Sidebar for Filters -->
+    <aside class="sidebar">
+        <h2>Filters</h2>
+
+        <!-- Example Filter Block -->
+        <div class="filter">
+            <button class="filter-toggle" onclick="toggleFilter(this)">
+                <span>Gender</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <div class="filter-content">
+                <ul>
+                    <li><input type="checkbox" id="gender-men"> <label for="gender-men">Men</label></li>
+                    <li><input type="checkbox" id="gender-women"> <label for="gender-women">Women</label></li>
+                    <li><input type="checkbox" id="gender-unisex"> <label for="gender-unisex">Unisex</label></li>
+                </ul>
+            </div>
+        </div>
+        <div class="filter">
+            <button class="filter-toggle" onclick="toggleFilter(this)">
+                <span>Bag Type</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <div class="filter-content">
+                <ul>
+                    <li><input type="checkbox" id="tote-bags"> <label>Tote Bags</label></li>
+                    <li><input type="checkbox" id="backpacks"> <label>Backpacks</label></li>
+                    <li><input type="checkbox" id="weekend-slings"> <label>Weekend Slings</label></li>
+                    <li><input type="checkbox" id="duffel-bags"> <label>Duffel bags</label></li>
+                    <li><input type="checkbox" id="wallet"> <label>Wallet</label></li>
+                    <li><input type="checkbox" id="classic-clutch"> <label>Classic Clutch</label></li>
+                </ul>
+            </div>
+        </div>
+        <div class="filter">
+        <button class="filter-toggle" onclick="toggleFilter(this)">
+            <span>Size</span>
+            <span class="toggle-icon">+</span>
+        </button>
+        <div class="filter-content">
+            <ul>
+                <li><input type="checkbox" id="small"><label for="small">Small</label></li>
+                <li><input type="checkbox" id="medium"><label for="medium">Medium</label></li>
+                <li><input type="checkbox" id="large"><label for="large">Large</label></li>
+            </ul>
+        </div>
+    </div>
+        <div class="filter">
+            <button class="filter-toggle" onclick="toggleFilter(this)">
+                <span>Occassion</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <div class="filter-content">
+                <ul>
+                    <li><input type="checkbox" id="work"><label for="work">Work</label></li>
+                    <li><input type="checkbox" id="travel"><label for="travel">Travel</label></li>
+                    <li><input type="checkbox" id="party"><label for="party">Party</label></li>
+                    <li><input type="checkbox" id="college"><label for="college">College</label></li>
+                </ul>
+            </div>
+        </div>
+        <div class="filter">
+            <button class="filter-toggle" onclick="toggleFilter(this)">
+                <span>Budget</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <div class="filter-content">
+                <ul>
+                    <li><input type="radio" name="budget" id="under-1000"><label for="under-1000">Under ₹1000</label></li>
+                    <li><input type="radio" name="budget" id="1000-2000"><label for="1000-2000">₹1000 – ₹2000</label></li>
+                    <li><input type="radio" name="budget" id="above-2000"><label for="above-2000">Above ₹2000</label></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Repeat for other filters (Type of Bags, Budget, etc.) -->
+    </aside>
+
+
+    <!-- Product Grid -->
+    <main class="product-grid" id="product-grid">
+        <div class="product-card">
+            <img src="https://i.postimg.cc/fWFX9qG3/Men-Colourblock-Letter-Patch-Messenger-Bag-With-Bag-Charm.jpg" alt="Bag">
+            <h3>Stylish Messenger Bag</h3>
+            <p>₹1,299</p>
+            <button class="details-btn">Details</button>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://i.postimg.cc/fWFX9qG3/Men-Colourblock-Letter-Patch-Messenger-Bag-With-Bag-Charm.jpg" alt="Bag">
+            <h3>Stylish Messenger Bag</h3>
+            <p>₹1,299</p>
+            <button class="details-btn">Details</button>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://i.postimg.cc/fWFX9qG3/Men-Colourblock-Letter-Patch-Messenger-Bag-With-Bag-Charm.jpg" alt="Bag">
+            <h3>Stylish Messenger Bag</h3>
+            <p>₹1,299</p>
+            <button class="details-btn">Details</button>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://i.postimg.cc/fWFX9qG3/Men-Colourblock-Letter-Patch-Messenger-Bag-With-Bag-Charm.jpg" alt="Bag">
+            <h3>Stylish Messenger Bag</h3>
+            <p>₹1,299</p>
+            <button class="details-btn">Details</button>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://i.postimg.cc/fWFX9qG3/Men-Colourblock-Letter-Patch-Messenger-Bag-With-Bag-Charm.jpg" alt="Bag">
+            <h3>Stylish Messenger Bag</h3>
+            <p>₹1,299</p>
+            <button class="details-btn">Details</button>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://i.postimg.cc/fWFX9qG3/Men-Colourblock-Letter-Patch-Messenger-Bag-With-Bag-Charm.jpg" alt="Bag">
+            <h3>Stylish Messenger Bag</h3>
+            <p>₹1,299</p>
+            <button class="details-btn">Details</button>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+
+        <!-- Product cards will be added here dynamically by JavaScript -->
+    </main>
+</div>
+
+<!-- Header Fetch Script -->
+<script>
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
+</script>
+
+<!-- Fetch Products Script -->
+<script>
+    // Fetch products from backend API and display them
+    fetch('http://localhost:3000/api/products') // Replace with your actual API endpoint
+      .then(response => response.json())
+      .then(products => {
+        const productGrid = document.getElementById('product-grid');
+        products.forEach(product => {
+          const productCard = document.createElement('div');
+          productCard.className = 'product-card';
+          productCard.innerHTML = `
+            <img src="${product.imageUrl}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>$${product.price}</p>
+            <button>Add to Cart</button>
+          `;
+          productGrid.appendChild(productCard);
+        });
+      })
+      .catch(error => console.error('Error fetching products:', error));
+</script>
+</body>
+</html>
