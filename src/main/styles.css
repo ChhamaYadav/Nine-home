@@ -23,10 +23,13 @@ body {
 }
 
 .promo-bar{
-    background-color: var(--buttermilk);
+    background-color: #BF8F84;
     font-size: 1.0rem;
     text-align: center;
-    font-color: var(--primary);
+    color: white;
+}
+#promoText {
+    transition: opacity 0.5s ease-in-out;
 }
 
 /* Header */
@@ -54,7 +57,7 @@ header {
 
 .header-right a i {
   font-size: 20px;
-  color: var(--primary) /* Example beige tone (visible on light backgrounds) */
+  color:white; /* Example beige tone (visible on light backgrounds) */
   transition: color 0.3s;
 }
 
@@ -283,7 +286,9 @@ footer {
 }
 
 .modal-content {
-  background-color: white;
+  background-color: var(--buttermilk);
+  color:var(--primary);
+  text-align: center;
   margin: 10% auto;
   padding: 2rem;
   width: 90%;
@@ -347,4 +352,5 @@ footer {
 .signup-link {
   margin-top: 1rem;
   text-align: center;
+  color: white;
 }

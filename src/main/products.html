@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List of Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="products.css">
     <script src="script.js" defer></script>
 </head>
 
 <div class="promo-bar">
-    <p>🎉 Free Shipping on All Orders in India above 2000INR! 🎉</p>
+    <p id="promoText">🎉 Free Shipping on All Orders in India above 2000INR! 🎉</p>
 </div>
 <header>
     <div class="header-left">
@@ -21,7 +22,7 @@
 
         <!-- Auth Links -->
         <a href="#" class="login login-only" id="login-btn" title="Login">
-            <i class="fas fa-sign-in-alt"></i>
+            <i class="fas fa-user"></i>
         </a>
         <a href="#" class="bucket profile-only" title="My Cart">
             <i class="fas fa-shopping-bag"></i>
@@ -29,10 +30,6 @@
         <a href="#" class="wishlist profile-only" title="Wishlist">
             <i class="fas fa-heart"></i>
         </a>
-        <a href="#" class="profile profile-only" title="Profile">
-            <i class="fas fa-user"></i>
-        </a>
-
         <!-- Currency Selector -->
         <div class="currency-dropdown">
             <select id="currency-select" onchange="changeCurrency(this.value)">
@@ -127,7 +124,7 @@
     </aside>
 
 
-    <!-- Product Grid -->
+    <!-- org.example.Product Grid -->
     <main class="product-grid" id="product-grid">
         <div class="product-card">
             <img src="https://i.postimg.cc/fWFX9qG3/Men-Colourblock-Letter-Patch-Messenger-Bag-With-Bag-Charm.jpg" alt="Bag">
@@ -172,9 +169,34 @@
             <button class="cart-btn">Add to Cart</button>
         </div>
 
-        <!-- Product cards will be added here dynamically by JavaScript -->
+        <!-- org.example.Product cards will be added here dynamically by JavaScript -->
     </main>
 </div>
+<!-- org.example.Product Detail Modal -->
+<div id="product-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+
+        <div class="modal-gallery">
+            <img id="main-image" src="" alt="org.example.Product Image">
+            <div id="thumbnail-container">
+                <!-- Thumbnails will be added here -->
+            </div>
+        </div>
+
+        <div class="modal-details">
+            <h2 id="modal-title">org.example.Product Title</h2>
+            <p id="modal-description">org.example.Product description goes here...</p>
+            <p id="modal-price">₹1299</p>
+            <div id="modal-reviews">
+                <p>⭐ 4.5 (Based on 122 reviews)</p>
+            </div>
+            <button class="cart-btn like-btn"><i class="fa-regular fa-heart"></i></button>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
 
 <!-- Header Fetch Script -->
 <script>

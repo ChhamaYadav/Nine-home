@@ -1,0 +1,4 @@
+INSERT INTO products (name, description, price, image_url, color, quantity)
+VALUES
+('Beige Shoulder Bag', 'Elegant leather bag.', 49.99, 'https://example.com/bag1.jpg', 'Beige', 10),
+('Tan Tote', 'Spacious and stylish tote.', 59.99, 'https://example.com/bag2.jpg', 'Tan', 15);
