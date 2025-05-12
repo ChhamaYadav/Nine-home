@@ -18,10 +18,10 @@
     </div>
     <nav class="nav-bar">
         <ul class="nav-menu">
-            <li><a href="#">Shipping <span class="arrow">▼</span></a></li>
-            <li><a href="#">International Customers <span class="arrow">▼</span></a></li>
-            <li><a href="#">Return/Refund  <span class="arrow">▼</span></a></li>
-            <li><a href="#">Cancellation/Order change  <span class="arrow">▼</span></a></li>
+            <li><a href="#" onclick="showSection('shipping')">Shipping <span class="arrow">▼</span></a></li>
+            <li><a href="#" onclick="showSection('international')">International Customers <span class="arrow">▼</span></a></li>
+            <li><a href="#" onclick="showSection('refund')">Return/Refund  <span class="arrow">▼</span></a></li>
+            <li><a href="#" onclick="showSection('cancellations')">Cancellation/Order change  <span class="arrow">▼</span></a></li>
 
         </ul>
     </nav>
@@ -41,6 +41,194 @@
         </a>
     </div>
 </header>
+<body>
+<main>
+
+    <div  class="faq-section" id="shipping" class="faq-section active">
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>How long does it take to process my order?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            Orders are typically processed within 2–5 business days. You'll receive a confirmation email once your order has been shipped.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>How can I track my order?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            Once your order is shipped, we'll send you a tracking number via email. You can use this number on our website to monitor your shipment's progress.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>What should I do if my package is delayed?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            Firstly our team apologise if this happens but If your package hasn't arrived within the estimated delivery time, please contact our customer support team or mail us for assistance.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>Can I change my shipping address after placing an order?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            If your order hasn't been shipped yet, we can update the shipping address. Please contact us as soon as possible to make changes.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>Do you offer free shipping?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            we always offer some free standard shipping based on some conditions on the product or the locations we have, please check the home page for the same.
+        </div>
+    </div>
+
+<!--   For  International Cx-->
+    <div id="international" class="faq-section hidden">
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>Do you ship internationally?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            Yes, we ship to select countries worldwide. Shipping costs and delivery times vary based on the destination.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>How can I track my order?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            Once your order is shipped, we'll send you a tracking number via email. You can use this number on our website to monitor your shipment's progress.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>Are there any additional fees for international orders?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            International orders may be subject to customs duties, taxes, and import fees, which are the responsibility of the recipient.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span> How long does international shipping take?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            International delivery times typically range from 10–21 business days, depending on the destination and customs processing.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>How can I track my international order?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            Tracking information will be provided once your order is shipped. Please note that tracking updates may be limited in some countries.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>What should I do if my international order is delayed?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            Customs processing can sometimes cause delays. If your order hasn't arrived within the expected timeframe, please contact our support team for assistance.
+        </div>
+    </div>
+
+<!--    Return /Refund FAQs-->
+
+    <div id="refund" class="faq-section hidden">
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>How long does it take to process my order?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            Orders are typically processed within 2–5 business days. You'll receive a confirmation email once your order has been shipped.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>How can I track my order?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            Once your order is shipped, we'll send you a tracking number via email. You can use this number on our website to monitor your shipment's progress.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>What should I do if my package is delayed?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            Firstly our team apologise if this happens but If your package hasn't arrived within the estimated delivery time, please contact our customer support team or mail us for assistance.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>Can I change my shipping address after placing an order?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            If your order hasn't been shipped yet, we can update the shipping address. Please contact us as soon as possible to make changes.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>Do you offer free shipping?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            we always offer some free standard shipping based on some conditions on the product or the locations we have, please check the home page for the same.
+        </div>
+    </div>
+<!--    Cancellations/Order Change  -->
+    <div id="cancellations" class="faq-section hidden">
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>Can I cancel my order after placing it?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            Orders can be canceled within 6 hours of placement. After this window, the order may have already been processed.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>How can I track my order?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            Once your order is shipped, we'll send you a tracking number via email. You can use this number on our website to monitor your shipment's progress.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>How do I modify my order?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            To make changes to your order, please contact our customer support team as soon as possible. Modifications are only possible before the order is shipped.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>Can I change my shipping address after placing an order?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            If your order hasn't been shipped yet, we can update the shipping address. Please contact us as soon as possible to make changes.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>What if I entered the wrong shipping address?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            If your order hasn't been shipped yet, we can update the address. Contact us immediately to make changes.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span>Can I add or remove items from my order?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            Changes to the items in your order can be made within the 6-hour window after placement. Contact our support team for assistance.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span> What happens if I cancel my order after it has been shipped?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            Once an order has been shipped, it cannot be canceled. You may initiate a return after receiving the item.
+        </div>
+        <div class="faq-question" onclick="toggleFAQs(this)">
+            <span> Will I be charged for canceling my order?</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer hidden">
+            No cancellation fees apply if the order is canceled within the specified time frame.        </div>
+    </div>
+
+</main>
+</body>
+
 <footer>
     <p>&copy; 2024 Nine. Bags. All rights reserved.</p>
 </footer>
