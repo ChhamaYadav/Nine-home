@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="FAQs.css">
+    <script src="contact.js" defer></script>
+</head>
+
+<div class="promo-bar">
+    <p id="promoText">🎉 Free Shipping on All Orders in India above 2000INR! 🎉</p>
+</div>
+<header>
+    <div class="header-left">
+        <a href="index.html" class="no-style-link"><h2>Nine.</h2></a>
+    </div>
+    <div class="header-right">
+        <!-- Auth Links -->
+        <a href="#" class="login login-only" id="login-btn" title="Login">
+            <i class="fas fa-user"></i>
+        </a>
+        <a href="#" class="bucket profile-only" title="My Cart">
+            <i class="fas fa-shopping-bag"></i>
+        </a>
+        <a href="#" class="wishlist profile-only" title="Wishlist">
+            <i class="fas fa-heart"></i>
+        </a>
+    </div>
+</header>
+<body>
+<!-- Contact Form -->
+<main>
+    <section class="contact-container">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" class="search-bar" placeholder="Enter your subject..." required />
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" class="search-bar" placeholder="Type your message..." rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="send-btn">Send Message</button>
+        </form>
+    </section>
+</main>
+</body>
+<footer>
+    <p>&copy; 2024 Nine. Bags. All rights reserved.</p>
+</footer>
+</html>
