@@ -28,5 +28,10 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
+    @GetMapping("/detailsRequired")
+    public List<ProductRequiredDTO> getDetails(){
+        return productService.getRequiredDetails();
+    }
+
 
 }
