@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="cart-page">
+<body class="wishlist-page">
 <!-- Promo Bar (Sticky at the top) -->
 <div class="promo-bar" id="promoBanner">
     <p id="promoText">🎉 Free Shipping on All Orders in India above 2000INR! 🎉</p>
@@ -27,14 +27,14 @@
         <a href="cart.html" class="bucket profile-only" title="My Cart">
             <i class="fas fa-shopping-bag"></i>
         </a>
-        <a href="wishlist.html" class="wishlist profile-only" title="Wishlist">
+        <a href="#" class="wishlist profile-only" title="Wishlist">
             <i class="fas fa-heart"></i>
         </a>
     </div>
 </header>
 <main>
     <div class="cart-container">
-        <h2>Your Shopping Cart</h2>
+        <h2>Your wishlist</h2>
 
         <!-- Cart Item -->
         <div class="cart-item">
@@ -44,11 +44,7 @@
                 <p>Color: <span class="color-circle" style="background-color: #5c4033;"></span></p>
                 <p>Price: ₹1200</p>
             </div>
-            <div class="item-quantity">
-                <button>-</button>
-                <input type="text" value="1" readonly />
-                <button>+</button>
-            </div>
+            <button class="cart-btn">Add to Cart</button>
             <div class="item-remove">
                 <button class="remove-btn"><i class="fas fa-trash"></i></button>
             </div>
@@ -60,11 +56,7 @@
                 <p>Color: <span class="color-circle" style="background-color: #5c4033;"></span></p>
                 <p>Price: ₹1200</p>
             </div>
-            <div class="item-quantity">
-                <button>-</button>
-                <input type="text" value="1" readonly />
-                <button>+</button>
-            </div>
+            <button class="cart-btn">Add to Cart</button>
             <div class="item-remove">
                 <button class="remove-btn"><i class="fas fa-trash"></i></button>
             </div>
@@ -76,11 +68,7 @@
                 <p>Color: <span class="color-circle" style="background-color: #5c4033;"></span></p>
                 <p>Price: ₹1200</p>
             </div>
-            <div class="item-quantity">
-                <button>-</button>
-                <input type="text" value="1" readonly />
-                <button>+</button>
-            </div>
+            <button class="cart-btn">Add to Cart</button>
             <div class="item-remove">
                 <button class="remove-btn"><i class="fas fa-trash"></i></button>
             </div>
@@ -88,34 +76,29 @@
 
         <!-- Repeat .cart-item for more products as needed -->
 
-        <!-- Total -->
-        <div class="cart-total">
-            <h3 class="header-right">Total: ₹1200</h3>
-            <button class="checkout-btn">Proceed to Checkout</button>
-        </div>
     </div>
 </main>
-        <!-- Footer -->
-        <footer>
-            <footer class="site-footer">
-                <div class="footer-container">
-                    <div class="footer-left">
-                        <h4>Need Help?</h4>
-                        <p><a href="FAQs.html">FAQs</a> – Shipping, Returns, Payments & More</p>
-                        <p><a href="contact.html">Contact Us</a> – We're just a message away</p>
-                    </div>
+<!-- Footer -->
+<footer>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <h4>Need Help?</h4>
+                <p><a href="FAQs.html">FAQs</a> – Shipping, Returns, Payments & More</p>
+                <p><a href="contact.html">Contact Us</a> – We're just a message away</p>
+            </div>
 
-                    <div class="footer-right">
-                        <h4>Connect With Us</h4>
-                        <p>
-                            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
-                            <a href="mailto:support@ninebags.com"><i class="fas fa-envelope"></i></a>
-                        </p>
-                    </div>
-                </div>
-            </footer>
-            <p>&copy; 2024 Nine. Bags. All rights reserved.</p>
-        </footer>
+            <div class="footer-right">
+                <h4>Connect With Us</h4>
+                <p>
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="mailto:support@ninebags.com"><i class="fas fa-envelope"></i></a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <p>&copy; 2024 Nine. Bags. All rights reserved.</p>
+</footer>
 </body>
 </html>

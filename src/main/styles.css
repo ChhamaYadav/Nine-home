@@ -417,14 +417,14 @@ footer {
     color: #999;
 }
 
-body.cart-page {
+body.cart-page,body.wishlist-page {
   background-color: #f3ede8;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
 }
 
-body.cart-page main {
+body.cart-page main, body.wishlist-page main {
   flex: 1;
   padding: 40px 20px;
   display: flex;
@@ -530,7 +530,7 @@ body.cart-page main {
   margin-bottom: 15px;
 }
 
-.checkout-btn {
+.checkout-btn,.cart-btn {
   background-color: #5E503F;
   color: white;
   border: none;
@@ -540,7 +540,7 @@ body.cart-page main {
   font-size: 16px;
 }
 
-.checkout-btn:hover {
+.checkout-btn:hover,.cart-btn:hover {
   background-color: #A49382;
 }
 
