@@ -206,27 +206,5 @@
         document.getElementById("header-placeholder").innerHTML = data;
       });
 </script>
-
-<!-- Fetch Products Script -->
-<script>
-    // Fetch products from backend API and display them
-    fetch('http://localhost:3000/api/products') // Replace with your actual API endpoint
-      .then(response => response.json())
-      .then(products => {
-        const productGrid = document.getElementById('product-grid');
-        products.forEach(product => {
-          const productCard = document.createElement('div');
-          productCard.className = 'product-card';
-          productCard.innerHTML = `
-            <img src="${product.imageUrl}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p>$${product.price}</p>
-            <button>Add to Cart</button>
-          `;
-          productGrid.appendChild(productCard);
-        });
-      })
-      .catch(error => console.error('Error fetching products:', error));
-</script>
 </body>
 </html>

@@ -15,7 +15,6 @@ import java.util.List;
 @RequestMapping("/api")
 public class ProductController {
 
-
     private final ProductService productService;
 
     @Autowired
@@ -30,6 +29,7 @@ public class ProductController {
 
     @GetMapping("/detailsRequired")
     public List<ProductRequiredDTO> getDetails(){
+        System.out.println("fontened call for http://localhost:8080/api/detailsRequired ");
         return productService.getRequiredDetails();
     }
 

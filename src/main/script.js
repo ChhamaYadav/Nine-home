@@ -98,3 +98,24 @@ document.querySelector('.like-btn').addEventListener('click', function () {
         banner.style.opacity = 1;
       }, 500); // match this to CSS transition time
     }, 4000); // change message every 4 seconds
+
+    //<!-- Fetch Products Script -->
+    fetch('http://localhost:8080/api/detailsRequired')
+          .then(response => response.json())
+          .then(products => {
+            const productGrid = document.getElementById('product-grid');
+            productGrid.innerHTML = "";
+            products.forEach(product => {
+              const productCard = document.createElement('div');
+              productCard.className = 'product-card';
+              productCard.innerHTML=`
+                <img src="${product.productImageURL}" alt="${product.productName}">
+                <h3>${product.productName}</h3>
+                <p>₹${product.productPrice}</p>
+                <button class="details-btn">Details</button>
+                 <button class="cart-btn">Add to Cart</button>
+              `
+                productGrid.appendChild(productCard);
+            });
+          })
+          .catch(error => console.error('Error fetching products:', error));
