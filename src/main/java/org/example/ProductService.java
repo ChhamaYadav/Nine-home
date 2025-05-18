@@ -37,4 +37,9 @@ public class ProductService {
         System.out.println("fetched required details from 8081");
         return detailsList;
     }
+
+    public Product getDetailsById(Long id){
+        String url= "http://localhost:8081/api/products/"+id;
+        return restTemplate.getForObject(url,Product.class);
+    }
 }

@@ -2,10 +2,9 @@ package org.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -29,8 +28,21 @@ public class ProductController {
 
     @GetMapping("/detailsRequired")
     public List<ProductRequiredDTO> getDetails(){
-        System.out.println("fontened call for http://localhost:8080/api/detailsRequired ");
+        System.out.println("frontned call for http://localhost:8080/api/detailsRequired ");
         return productService.getRequiredDetails();
+    }
+
+    @GetMapping("/external/{id}")
+    public ResponseEntity<Product> fetchProductById(@PathVariable Long id){
+        System.out.println("fontned call for getProductByID  http://localhost:8080/api/{id} ");
+        Product product=productService.getDetailsById(id);
+        if(product!=null){
+            return new ResponseEntity<>(product, HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
     }
 
 

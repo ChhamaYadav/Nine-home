@@ -1,121 +1,116 @@
 function toggleFilter(button) {
   const content = button.nextElementSibling;
   const icon = button.querySelector('.toggle-icon');
-
   const isVisible = content.style.display === 'block';
   content.style.display = isVisible ? 'none' : 'block';
   icon.textContent = isVisible ? '+' : '–';
 }
 
-// Example product data for demo purposes
-const exampleProduct = {
-  name: "Stylish Messenger Bag",
-  description: "This bag features a minimalist design, durable fabric, and enough room for daily essentials.",
-  price: "₹1299",
-  images: [
-    "https://i.postimg.cc/fWFX9qG3/Men-Colourblock-Letter-Patch-Messenger-Bag-With-Bag-Charm.jpg",
-    "https://i.postimg.cc/7h1k3t6v/bag2.jpg",
-    "https://i.postimg.cc/mg1KcFrV/bag3.jpg"
-  ],
-  reviews: "⭐ 4.5 (Based on 122 reviews)"
-};
-
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("product-modal");
   const closeBtn = document.querySelector(".close-modal");
 
-  document.querySelectorAll(".details-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      // Here you'd pass real data dynamically, but using sample
-      openProductModal(exampleProduct);
-    });
-  });
+  // Fetch and display products
+  fetch('http://localhost:8080/api/detailsRequired')
+    .then(response => response.json())
+    .then(products => {
+      const productGrid = document.getElementById('product-grid');
+      productGrid.innerHTML = "";
 
+      products.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.className = 'product-card';
+        productCard.innerHTML = `
+          <img src="${product.productImageURL}" alt="${product.productName}">
+          <h3>${product.productName}</h3>
+          <p>₹${product.productPrice}</p>
+          <button class="details-btn" data-product-id="${product.productId}">Details</button>
+          <button class="cart-btn">Add to Cart</button>
+        `;
+        productGrid.appendChild(productCard);
+      });
+
+      // Attach modal open logic
+      document.querySelectorAll(".details-btn").forEach(button => {
+        button.addEventListener("click", () => {
+          const id = button.getAttribute("data-product-id");
+          fetch(`http://localhost:8080/api/external/${id}`)
+            .then(response => response.json())
+            .then(product => openProductModal(product))
+            .catch(error => console.error("Failed to fetch product details:", error));
+        });
+      });
+    })
+    .catch(error => console.error("Error fetching products:", error));
+
+  // Close modal logic
   closeBtn.addEventListener("click", () => {
     modal.style.display = "none";
   });
-
   window.addEventListener("click", (e) => {
-    if (e.target == modal) {
+    if (e.target === modal) {
       modal.style.display = "none";
     }
   });
 });
 
+// Modal render logic
 function openProductModal(product) {
-  document.getElementById("modal-title").textContent = product.name;
-  document.getElementById("modal-description").textContent = product.description;
-  document.getElementById("modal-price").textContent = product.price;
-  document.getElementById("modal-reviews").innerHTML = `<p>${product.reviews}</p>`;
-  document.getElementById("main-image").src = product.images[0];
+  document.getElementById("modal-title").textContent = product.productName;
+  document.getElementById("modal-description").textContent = product.description || "No description provided.";
+  document.getElementById("modal-price").textContent = `₹${product.productPrice}`;
+  document.getElementById("main-image").src = product.productimage_URL?.[0] || "";
 
-  // Populate thumbnails
   const thumbContainer = document.getElementById("thumbnail-container");
   thumbContainer.innerHTML = "";
-  product.images.forEach((img) => {
-    const thumb = document.createElement("img");
-    thumb.src = img;
-    thumb.addEventListener("click", () => {
-      document.getElementById("main-image").src = img;
-    });
-    thumbContainer.appendChild(thumb);
-  });
 
+  if (product.productimage_URL && product.productimage_URL.length > 1) {
+    product.productimage_URL.forEach(img => {
+      const thumb = document.createElement("img");
+      thumb.src = img;
+      thumb.classList.add("thumbnail");
+      thumb.addEventListener("click", () => {
+        document.getElementById("main-image").src = img;
+      });
+      thumbContainer.appendChild(thumb);
+    });
+  }
+
+  document.getElementById("modal-reviews").innerHTML = `<p>⭐ 4.5 (Based on 122 reviews)</p>`;
   document.getElementById("product-modal").style.display = "block";
 }
 
-document.querySelector('.like-btn').addEventListener('click', function () {
-    this.classList.toggle('liked');
-    const icon = this.querySelector('i');
-    if (this.classList.contains('liked')) {
+// Like button in modal
+document.addEventListener('click', function (e) {
+  if (e.target.closest('.like-btn')) {
+    const likeBtn = e.target.closest('.like-btn');
+    likeBtn.classList.toggle('liked');
+    const icon = likeBtn.querySelector('i');
+    if (likeBtn.classList.contains('liked')) {
       icon.classList.remove('fa-regular');
       icon.classList.add('fa-solid');
     } else {
       icon.classList.remove('fa-solid');
       icon.classList.add('fa-regular');
     }
-  });
+  }
+});
 
-//Message on promo
-  const promoMessages = [
-      "Free Shipping on Orders Over $50!",
-      "10% Off First Purchase – Use Code WELCOME10",
-      "Buy One Get One Free – This Week Only!",
-      "New Arrivals Just Dropped – Shop Now!"
-    ];
+// Promo banner
+const promoMessages = [
+  "Free Shipping on Orders Over ₹2000!",
+  "10% Off First Purchase – Use Code WELCOME10",
+  "Buy One Get One Free – This Week Only!",
+  "New Arrivals Just Dropped – Shop Now!"
+];
+let currentMessageIndex = 0;
+const banner = document.getElementById("promoText");
 
-    let currentMessageIndex = 0;
-    const banner = document.getElementById("promoText");
-
-    setInterval(() => {
-      // Fade out
-      banner.style.opacity = 0;
-
-      setTimeout(() => {
-        // Update message and fade in
-        currentMessageIndex = (currentMessageIndex + 1) % promoMessages.length;
-        banner.textContent = promoMessages[currentMessageIndex];
-        banner.style.opacity = 1;
-      }, 500); // match this to CSS transition time
-    }, 4000); // change message every 4 seconds
-
-    //<!-- Fetch Products Script -->
-    fetch('http://localhost:8080/api/detailsRequired')
-          .then(response => response.json())
-          .then(products => {
-            const productGrid = document.getElementById('product-grid');
-            productGrid.innerHTML = "";
-            products.forEach(product => {
-              const productCard = document.createElement('div');
-              productCard.className = 'product-card';
-              productCard.innerHTML=`
-                <img src="${product.productImageURL}" alt="${product.productName}">
-                <h3>${product.productName}</h3>
-                <p>₹${product.productPrice}</p>
-                <button class="details-btn">Details</button>
-                 <button class="cart-btn">Add to Cart</button>
-              `
-                productGrid.appendChild(productCard);
-            });
-          })
-          .catch(error => console.error('Error fetching products:', error));
+setInterval(() => {
+  banner.style.opacity = 0;
+  setTimeout(() => {
+    currentMessageIndex = (currentMessageIndex + 1) % promoMessages.length;
+    banner.textContent = promoMessages[currentMessageIndex];
+    banner.style.opacity = 1;
+  }, 500);
+}, 4000);

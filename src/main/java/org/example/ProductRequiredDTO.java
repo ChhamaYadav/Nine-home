@@ -13,4 +13,5 @@ public class ProductRequiredDTO {
     private String productName;
     private double ProductPrice;
     private String productimageURL;
+    private Long productId;
 }
