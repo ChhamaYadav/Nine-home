@@ -161,3 +161,14 @@ setInterval(() => {
     banner.style.opacity = 1;
   }, 500);
 }, 4000);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const userId = 1; // Or fetch dynamically if needed
+
+  fetch(`http://localhost:8082/cart/count?userId==${userId}`)
+    .then(res => res.json())
+    .then(count => {
+      document.getElementById("cart-count-badge").textContent = count;
+    })
+    .catch(err => console.error("Failed to fetch cart count", err));
+});

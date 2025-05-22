@@ -66,5 +66,15 @@ public class ProductController {
 
     }
 
+    @GetMapping("/countItem/{userId}")
+    public ResponseEntity<Integer> getCartCountfromexternal(@PathVariable Long userId){
+        String cartServiceUrl="http://localhost:8082/cart/count/"+userId;
+        System.out.println("hit http://localhost:8082/cart/count/");
+
+        RestTemplate restTemplate=new RestTemplate();
+        Integer count=restTemplate.getForObject(cartServiceUrl,Integer.class);
+        return ResponseEntity.ok(count);
+    }
+
 
 }

@@ -249,6 +249,18 @@ main {
   background-color: var(--accent:);
 }
 
+#cart-count-badge {
+  background-color: red;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+  position: relative;
+  top: -10px;
+  left: -10px;
+}
+
+
 /* Add to Cart Button Hover Effect */
 .product-card button:hover {
     background-color: #A49382;
