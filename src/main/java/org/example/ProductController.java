@@ -97,5 +97,20 @@ public class ProductController {
         return ResponseEntity.ok().build();
     }
 
+    @GetMapping("/details/{userId}")
+    public ResponseEntity<Map<String,Object>> getALlCartItems(@PathVariable Long userId){
+        System.out.println("Calling http://localhost:8082/cart/details/"+userId);
+        String url="http://localhost:8082/cart/details/"+userId;
+
+        try {
+            ResponseEntity<Map> response = restTemplate.getForEntity(url, Map.class);
+            return new ResponseEntity<>(response.getBody(), response.getStatusCode());
+        }
+        catch(Exception e){
+            System.err.println("Failed to fetch cart details:"+e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
 
 }
