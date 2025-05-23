@@ -2,8 +2,7 @@ package org.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -17,10 +16,20 @@ import java.util.Map;
 public class ProductController {
 
     private final ProductService productService;
+    public record UpdateRequest(Long userId, Long productId, int quantity) {}
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     @Autowired
     public ProductController(ProductService productService) {
         this.productService = productService;
+    }
+
+    public HttpHeaders createJsonHeaders() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return headers;
     }
 
     @GetMapping("/products")
@@ -58,7 +67,6 @@ public class ProductController {
        requestBody.put("userId",12);
        requestBody.put("quantity",1);
 
-       RestTemplate restTemplate=new RestTemplate();
        String cartapiUrl="http://localhost:8082/cart/add";
 
        ResponseEntity<String> response=restTemplate.postForEntity(cartapiUrl,requestBody, String.class);
@@ -70,10 +78,23 @@ public class ProductController {
     public ResponseEntity<Integer> getCartCountfromexternal(@PathVariable Long userId){
         String cartServiceUrl="http://localhost:8082/cart/count/"+userId;
         System.out.println("hit http://localhost:8082/cart/count/");
-
-        RestTemplate restTemplate=new RestTemplate();
         Integer count=restTemplate.getForObject(cartServiceUrl,Integer.class);
         return ResponseEntity.ok(count);
+    }
+
+    @DeleteMapping("/remove")
+    public ResponseEntity<Void> removeitemFronCart(@RequestBody UpdateRequest updateRequest){
+        String serviceUrl="http://localhost:8082/cart/remove-item";
+        System.out.println("http://localhost:8082/cart/remove-item");
+
+        HttpHeaders headers=createJsonHeaders();
+
+        // Wrap the request body and headers in an HttpEntity
+        HttpEntity<UpdateRequest> requestEntity = new HttpEntity<>(updateRequest, headers);
+
+        //Perform delete request using exchange
+        restTemplate.exchange(serviceUrl, HttpMethod.DELETE,requestEntity,Void.class);
+        return ResponseEntity.ok().build();
     }
 
 

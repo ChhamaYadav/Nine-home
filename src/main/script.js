@@ -165,7 +165,7 @@ setInterval(() => {
 document.addEventListener("DOMContentLoaded", () => {
   const userId = 1; // Or fetch dynamically if needed
 
-  fetch(`http://localhost:8082/cart/count?userId==${userId}`)
+  fetch(`http://localhost:8080/api/countItem/${userId}`)
     .then(res => res.json())
     .then(count => {
       document.getElementById("cart-count-badge").textContent = count;
