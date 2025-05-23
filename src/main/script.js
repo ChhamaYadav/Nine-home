@@ -21,20 +21,19 @@ document.addEventListener("DOMContentLoaded", () => {
           <img src="${product.productImageURL}" alt="${product.productName}">
           <h3>${product.productName}</h3>
           <p>₹${product.productPrice}</p>
-          <button class="details-btn" data-product-id="${product.productId}">Details</button>
           <button class="cart-btn" data-product-id="${product.productId}">Add to Cart</button>
         `;
 
         productGrid.appendChild(productCard);
 
-        // Attach Add to Cart logic
-        const cartButton = productCard.querySelector(".cart-btn");
-        cartButton.addEventListener("click", () => {
-          addToCart(product);
-        });
+//        // Attach Add to Cart logic
+//        const cartButton = productCard.querySelector(".modal-add-to-cart-btn");
+////        cartButton.addEventListener("click", () => {
+//          addToCart(product);
+//        });
 
         // Attach Details modal logic
-        const detailsButton = productCard.querySelector(".details-btn");
+        const detailsButton = productCard.querySelector(".cart-btn");
         detailsButton.addEventListener("click", () => {
           fetch(`http://localhost:8080/api/external/${product.productId}`)
             .then(response => response.json())
@@ -55,6 +54,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+const modalAddBtn = document.querySelector(".modal-add-to-cart-btn");
+if (modalAddBtn) {
+  // Remove previous click to prevent stacking multiple listeners
+  modalAddBtn.replaceWith(modalAddBtn.cloneNode(true));
+  const newModalBtn = document.querySelector(".modal-add-to-cart-btn");
+
+  newModalBtn.addEventListener("click", () => {
+    addToCart(product);
+  });
+}
+
 
 // Reusable Add to Cart function
 function addToCart(product) {
@@ -115,8 +126,18 @@ function openProductModal(product) {
   document.getElementById("modal-reviews").innerHTML = `<p>⭐ 4.5 (Based on 122 reviews)</p>`;
   document.getElementById("product-modal").style.display = "block";
 
-  // Optional: add modal cart button logic here if needed
+  // ✅ Attach listener inside this function
+  const modalAddBtn = document.querySelector(".modal-add-to-cart-btn");
+  if (modalAddBtn) {
+    modalAddBtn.replaceWith(modalAddBtn.cloneNode(true));
+    const newModalBtn = document.querySelector(".modal-add-to-cart-btn");
+
+    newModalBtn.addEventListener("click", () => {
+      addToCart(product);
+    });
+  }
 }
+
 
 // Toggle filter (unchanged)
 function toggleFilter(button) {
@@ -162,13 +183,4 @@ setInterval(() => {
   }, 500);
 }, 4000);
 
-document.addEventListener("DOMContentLoaded", () => {
-  const userId = 1; // Or fetch dynamically if needed
 
-  fetch(`http://localhost:8080/api/countItem/${userId}`)
-    .then(res => res.json())
-    .then(count => {
-      document.getElementById("cart-count-badge").textContent = count;
-    })
-    .catch(err => console.error("Failed to fetch cart count", err));
-});
