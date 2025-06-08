@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded",function(){
     });
 });
 
+
 //fetch the details of items to display
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -91,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
       totalDiv.className = "cart-total";
       totalDiv.innerHTML = `
         <h3>Total: ₹${total.toFixed(2)}</h3>
-        <button class="checkout-btn">Proceed to Checkout</button>
+        <a href="http://localhost:63342/Payment-API/src/frontend/payment.html?_ijt=kuub98paavbg5stctelurlmkll&_ij_reload=RELOAD_ON_SAVE" class="checkout-btn">Proceed to Checkout</button>
       `;
       cartContainer.appendChild(totalDiv);
 

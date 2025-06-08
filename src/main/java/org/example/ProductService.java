@@ -21,7 +21,7 @@ public class ProductService {
         this.productRepository = productRepository;
         this.restTemplate = restTemplate;
     }
-
+    
     public List<Product> getAllProducts(){
         String url="http://localhost:8081/api/products/showAll";
         Product[] productArray=restTemplate.getForObject(url,Product[].class);
@@ -47,5 +47,9 @@ public class ProductService {
 
     public ResponseEntity<Map<String, Object>> getCartItemsDetails() {
         return null;
+    }
+
+    public List<Product> getFilteredProducts(List<String> gender, List<String> bagType, List<String> size, List<String> occasion, String budget) {
+
     }
 }
