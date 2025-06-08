@@ -5,10 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class ProductService {
@@ -50,6 +47,30 @@ public class ProductService {
     }
 
     public List<Product> getFilteredProducts(List<String> gender, List<String> bagType, List<String> size, List<String> occasion, String budget) {
-
+        return productRepository.findFilteredProducts(gender, bagType, size, occasion, budget);
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
