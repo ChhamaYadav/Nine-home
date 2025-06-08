@@ -9,17 +9,18 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product,Long> {
 
-    @Query("SELECT p FROM Product p WHERE " +
-            "(:gender IS NULL OR p.gender IN :gender) AND " +
-            "(:bagType IS NULL OR p.bagType IN :bagType) AND " +
-            "(:size IS NULL OR p.size IN :size) AND " +
-            "(:occasion IS NULL OR p.occasion IN :occasion) AND " +
+    @Query(value = "SELECT * FROM products WHERE " +
+            "(:gender IS NULL OR gender IN (:gender)) AND " +
+            "(:bagType IS NULL OR bag_type IN (:bagType)) AND " +
+            "(:size IS NULL OR size IN (:size)) AND " +
+            "(:occasion IS NULL OR occasion IN (:occasion)) AND " +
             "(" +
-            "(:budget = 'under-1000' AND p.price < 1000) OR " +
-            "(:budget = '1000-2000' AND p.price BETWEEN 1000 AND 2000) OR " +
-            "(:budget = 'above-2000' AND p.price > 2000) OR " +
+            "(:budget = 'under-1000' AND productPrice < 1000) OR " +
+            "(:budget = '1000-2000' AND productPrice BETWEEN 1000 AND 2000) OR " +
+            "(:budget = 'above-2000' AND productPrice > 2000) OR " +
             ":budget IS NULL" +
-            ")")
+            ")",
+            nativeQuery = true)
     List<Product> findFilteredProducts(
             List<String> gender,
             List<String> bagType,

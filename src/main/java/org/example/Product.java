@@ -33,5 +33,10 @@ public class Product {
     @CollectionTable(name = "product_images", joinColumns = @JoinColumn(name = "product_id"))
     @Column(name = "image_url")
     private List<String> productimage_URL;
+    private String gender;
+    private String bag_type;
+    private String size;
+    private String occasion;
+
 
 }
